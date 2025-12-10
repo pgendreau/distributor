@@ -1,0 +1,28 @@
+{
+  "name": "distributor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "generate-tree": "ts-node scripts/generateTree.ts",
+    "deploy:local": "hardhat run scripts/deploy.ts --network localhost"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Merkle Distributor for 1111 ETH distribution",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.4.0",
+    "@types/node": "^24.10.1",
+    "axios": "^1.13.2",
+    "csv-parser": "^3.2.0",
+    "ethers": "^6.16.0",
+    "hardhat": "^2.27.1",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
