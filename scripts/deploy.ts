@@ -2,13 +2,12 @@ import { ethers } from "hardhat";
 
 async function main() {
   const [deployer, dao] = await ethers.getSigners();
+  const ownerAddress = await deployer.getAddress();
+  const daoAddress = dao ? await dao.getAddress() : "0x62de034b1a69ef853c9d0d8a33d26df5cf26682e";
 
   console.log("Deploying MerkleDistributor...");
-  console.log("Deployer (Owner):", deployer.address);
-  console.log("DAO:", dao ? dao.address : deployer.address);
-
-  const daoAddress = dao ? dao.address : deployer.address;
-  const ownerAddress = deployer.address;
+  console.log("Deployer (Owner):", ownerAddress);
+  console.log("DAO:", daoAddress);
 
   const MerkleDistributor = await ethers.getContractFactory("MerkleDistributor");
   const distributor = await MerkleDistributor.deploy(daoAddress, ownerAddress);

@@ -1,6 +1,9 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 
+import dotenv from 'dotenv';
+dotenv.config();
+
 const config: HardhatUserConfig = {
   solidity: {
     version: "0.8.24",
@@ -33,6 +36,20 @@ const config: HardhatUserConfig = {
     tests: "./test",
     cache: "./cache",
     artifacts: "./artifacts",
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY,
+    customChains: [
+      // For Base Mainnet
+      {
+        network: "base",
+        chainId: 8453,
+        urls: {
+          apiURL: "https://api.etherscan.io/v2/api", // V2 API URL for mainnet
+          browserURL: "https://basescan.org",     // V2 Browser URL for mainnet
+        },
+      },
+    ],
   },
 };
 
